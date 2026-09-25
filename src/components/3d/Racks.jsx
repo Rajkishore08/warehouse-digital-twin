@@ -136,11 +136,37 @@ export function Racks() {
               );
             })}
 
+            {/* End-of-rack heavy duty yellow safety collision protectors / crash bollards */}
+            {[-rack.length / 2, rack.length / 2].map((zEnd, endIdx) => (
+              <group key={`protector_${endIdx}`} position={[0, 0, zEnd]}>
+                {/* Front corner yellow post */}
+                <mesh position={[0.55, 0.4, 0]}>
+                  <cylinderGeometry args={[0.07, 0.07, 0.8, 12]} />
+                  <meshStandardMaterial color="#ffcc00" roughness={0.3} metalness={0.2} />
+                </mesh>
+                {/* Back corner yellow post */}
+                <mesh position={[-0.55, 0.4, 0]}>
+                  <cylinderGeometry args={[0.07, 0.07, 0.8, 12]} />
+                  <meshStandardMaterial color="#ffcc00" roughness={0.3} metalness={0.2} />
+                </mesh>
+                {/* Connecting lower crash bar */}
+                <mesh position={[0, 0.15, 0]} rotation={[Math.PI / 2, 0, 0]}>
+                  <cylinderGeometry args={[0.045, 0.045, 1.1, 12]} />
+                  <meshStandardMaterial color="#ffcc00" roughness={0.3} metalness={0.2} />
+                </mesh>
+                {/* Black hazard stripe on crash bar */}
+                <mesh position={[0, 0.35, 0]} rotation={[Math.PI / 2, 0, 0]}>
+                  <cylinderGeometry args={[0.045, 0.045, 1.1, 12]} />
+                  <meshStandardMaterial color="#1a1a1a" roughness={0.5} />
+                </mesh>
+              </group>
+            ))}
+
             {/* Overhead Rack Label Tag */}
             <Text
               position={[0, rack.height + 0.5, 0]}
               rotation={[0, Math.PI / 2, 0]}
-              fontSize={0.65}
+              fontSize={0.6}
               color={isSelected ? '#00f0ff' : '#8fa3bf'}
               anchorX="center"
               anchorY="middle"

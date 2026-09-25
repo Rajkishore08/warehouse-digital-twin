@@ -75,23 +75,51 @@ export function Floor() {
         <meshBasicMaterial color="#ffaa00" transparent opacity={0.6} />
       </mesh>
 
-      {/* Main East-West Navigation Highway Lines (North, Mid, South) */}
-      {[-18, 0, 18].map((zPos, idx) => (
-        <group key={`hwy_${idx}`} position={[0, 0.006, zPos]}>
-          <mesh rotation={[-Math.PI / 2, 0, 0]}>
-            <planeGeometry args={[52, 0.12]} />
-            <meshBasicMaterial color="#00e5ff" transparent opacity={0.35} />
-          </mesh>
-          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, 1.2]}>
-            <planeGeometry args={[52, 0.06]} />
-            <meshBasicMaterial color="#ffcc00" transparent opacity={0.25} />
-          </mesh>
-          <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, -1.2]}>
-            <planeGeometry args={[52, 0.06]} />
-            <meshBasicMaterial color="#ffcc00" transparent opacity={0.25} />
-          </mesh>
-        </group>
-      ))}
+      {/* Main East-West Navigation Highway Lines (North, Mid Crossover, South) */}
+      {[-18, 0, 18].map((zPos, idx) => {
+        const isMidCrossover = zPos === 0;
+        return (
+          <group key={`hwy_${idx}`} position={[0, 0.006, zPos]}>
+            {/* Crossover highlighted asphalt zone for middle passage */}
+            {isMidCrossover && (
+              <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, -0.001, 0]}>
+                <planeGeometry args={[50, 4.8]} />
+                <meshBasicMaterial color="#00e5ff" transparent opacity={0.04} />
+              </mesh>
+            )}
+
+            {/* Highway Centerline */}
+            <mesh rotation={[-Math.PI / 2, 0, 0]}>
+              <planeGeometry args={[52, 0.12]} />
+              <meshBasicMaterial color="#00e5ff" transparent opacity={0.35} />
+            </mesh>
+
+            {/* Boundary Safety Lines */}
+            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, isMidCrossover ? 2.2 : 1.2]}>
+              <planeGeometry args={[52, 0.06]} />
+              <meshBasicMaterial color="#ffcc00" transparent opacity={isMidCrossover ? 0.5 : 0.25} />
+            </mesh>
+            <mesh rotation={[-Math.PI / 2, 0, 0]} position={[0, 0, isMidCrossover ? -2.2 : -1.2]}>
+              <planeGeometry args={[52, 0.06]} />
+              <meshBasicMaterial color="#ffcc00" transparent opacity={isMidCrossover ? 0.5 : 0.25} />
+            </mesh>
+
+            {/* Text badge for Middle Crossway */}
+            {isMidCrossover && (
+              <Text
+                position={[0, 0.012, 0]}
+                rotation={[-Math.PI / 2, 0, 0]}
+                fontSize={0.85}
+                color="#00e5ff"
+                anchorX="center"
+                anchorY="middle"
+              >
+                ◀ CENTRAL CROSS-AISLE CORRIDOR (CROSSOVER AISLES 1—8) ▶
+              </Text>
+            )}
+          </group>
+        );
+      })}
 
       {/* Longitudinal Aisle Lane Markings */}
       {WAREHOUSE_CONFIG.aisles.map(aisle => {

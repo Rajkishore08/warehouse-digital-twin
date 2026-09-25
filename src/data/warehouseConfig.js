@@ -18,32 +18,55 @@ export const WAREHOUSE_CONFIG = {
     { id: 'AISLE_08', name: 'Aisle 8', x: 21,  zMin: -15, zMax: 15, width: 3.2, capacity: 4 },
   ],
 
-  // Racks configuration flanking the aisles
+  // Racks configuration flanking the aisles (Modular North & South blocks separated by central cross-aisle passage at Z = 0)
   racks: [
     // Flanking Aisle 1
-    { id: 'RACK_01_L', x: -23.4, z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A1-L' },
-    { id: 'RACK_01_R', x: -18.6, z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A1-R' },
+    { id: 'RACK_01_L_N', x: -23.4, z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A1-L (N)' },
+    { id: 'RACK_01_L_S', x: -23.4, z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A1-L (S)' },
+    { id: 'RACK_01_R_N', x: -18.6, z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A1-R (N)' },
+    { id: 'RACK_01_R_S', x: -18.6, z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A1-R (S)' },
+
     // Flanking Aisle 2
-    { id: 'RACK_02_L', x: -17.4, z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A2-L' },
-    { id: 'RACK_02_R', x: -12.6, z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A2-R' },
+    { id: 'RACK_02_L_N', x: -17.4, z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A2-L (N)' },
+    { id: 'RACK_02_L_S', x: -17.4, z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A2-L (S)' },
+    { id: 'RACK_02_R_N', x: -12.6, z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A2-R (N)' },
+    { id: 'RACK_02_R_S', x: -12.6, z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A2-R (S)' },
+
     // Flanking Aisle 3
-    { id: 'RACK_03_L', x: -11.4, z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A3-L' },
-    { id: 'RACK_03_R', x: -6.6,  z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A3-R' },
+    { id: 'RACK_03_L_N', x: -11.4, z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A3-L (N)' },
+    { id: 'RACK_03_L_S', x: -11.4, z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A3-L (S)' },
+    { id: 'RACK_03_R_N', x: -6.6,  z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A3-R (N)' },
+    { id: 'RACK_03_R_S', x: -6.6,  z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A3-R (S)' },
+
     // Flanking Aisle 4
-    { id: 'RACK_04_L', x: -5.4,  z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A4-L' },
-    { id: 'RACK_04_R', x: -0.6,  z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A4-R' },
-    // Flanking Aisle 5
-    { id: 'RACK_05_L', x: 0.6,   z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A5-L' },
-    { id: 'RACK_05_R', x: 5.4,   z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A5-R' },
+    { id: 'RACK_04_L_N', x: -5.4,  z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A4-L (N)' },
+    { id: 'RACK_04_L_S', x: -5.4,  z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A4-L (S)' },
+    { id: 'RACK_04_R_N', x: -0.6,  z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A4-R (N)' },
+    { id: 'RACK_04_R_S', x: -0.6,  z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A4-R (S)' },
+
+    // Flanking Aisle 5 (Main Showcase Aisle)
+    { id: 'RACK_05_L_N', x: 0.6,   z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A5-L (N)' },
+    { id: 'RACK_05_L_S', x: 0.6,   z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A5-L (S)' },
+    { id: 'RACK_05_R_N', x: 5.4,   z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A5-R (N)' },
+    { id: 'RACK_05_R_S', x: 5.4,   z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A5-R (S)' },
+
     // Flanking Aisle 6
-    { id: 'RACK_06_L', x: 6.6,   z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A6-L' },
-    { id: 'RACK_06_R', x: 11.4,  z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A6-R' },
+    { id: 'RACK_06_L_N', x: 6.6,   z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A6-L (N)' },
+    { id: 'RACK_06_L_S', x: 6.6,   z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A6-L (S)' },
+    { id: 'RACK_06_R_N', x: 11.4,  z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A6-R (N)' },
+    { id: 'RACK_06_R_S', x: 11.4,  z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A6-R (S)' },
+
     // Flanking Aisle 7
-    { id: 'RACK_07_L', x: 12.6,  z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A7-L' },
-    { id: 'RACK_07_R', x: 17.4,  z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A7-R' },
+    { id: 'RACK_07_L_N', x: 12.6,  z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A7-L (N)' },
+    { id: 'RACK_07_L_S', x: 12.6,  z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A7-L (S)' },
+    { id: 'RACK_07_R_N', x: 17.4,  z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A7-R (N)' },
+    { id: 'RACK_07_R_S', x: 17.4,  z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A7-R (S)' },
+
     // Flanking Aisle 8
-    { id: 'RACK_08_L', x: 18.6,  z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A8-L' },
-    { id: 'RACK_08_R', x: 23.4,  z: 0, length: 28, height: 5.5, levels: 4, bays: 7, label: 'A8-R' },
+    { id: 'RACK_08_L_N', x: 18.6,  z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A8-L (N)' },
+    { id: 'RACK_08_L_S', x: 18.6,  z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A8-L (S)' },
+    { id: 'RACK_08_R_N', x: 23.4,  z: -8.5, length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A8-R (N)' },
+    { id: 'RACK_08_R_S', x: 23.4,  z: 8.5,  length: 11.5, height: 5.5, levels: 4, bays: 4, label: 'A8-R (S)' },
   ],
 
   // Special Industrial Zones
